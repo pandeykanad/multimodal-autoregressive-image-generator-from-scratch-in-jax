@@ -19,8 +19,19 @@ def generate_toy_images(key, num_images, image_size):
     
     return jax.vmap(generate_image)(keys)
 
-# Step 2 - assign_image_labels (not yet solved)
-# TODO: implement
+# Step 2 - assign_image_labels
+def assign_image_labels(images):
+    mid = images.shape[2]//2
+
+    lmass = jnp.sum(images[:,:,:mid], axis=(1,2))
+    rmass = jnp.sum(images[:,:,mid:], axis=(1,2))
+    ans = []
+    for i in range(images.shape[0]):
+        if lmass[i] >= rmass[i]:
+            ans.append("left")
+        else:
+            ans.append("right")
+    return ans
 
 # Step 3 - normalize_image_batch (not yet solved)
 # TODO: implement
