@@ -33,8 +33,10 @@ def assign_image_labels(images):
             ans.append("right")
     return ans
 
-# Step 3 - normalize_image_batch (not yet solved)
-# TODO: implement
+# Step 3 - normalize_image_batch
+def normalize_image_batch(images):
+    # TODO: rescale images from [0, 1] into the symmetric [-1, 1] range
+    return 2 * images - 1
 
 # Step 4 - split_image_into_patches (not yet solved)
 # TODO: implement
