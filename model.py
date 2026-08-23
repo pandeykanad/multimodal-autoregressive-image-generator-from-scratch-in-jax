@@ -37,8 +37,10 @@ def assign_image_labels(images):
 def normalize_image_batch(images):
     return 2 * images - 1
 
-# Step 4 - split_image_into_patches (not yet solved)
-# TODO: implement
+# Step 4 - split_image_into_patches
+def split_image_into_patches(image, patch_size):
+    H, W = image.shape
+    return image.reshape(H//patch_size, patch_size, W//patch_size, patch_size).transpose(0,2,1,3)
 
 # Step 5 - flatten_patches (not yet solved)
 # TODO: implement
